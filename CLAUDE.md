@@ -5,7 +5,8 @@
 - **Navigation:** Expo Router (file-based routing in `app/`)
 - **Backend:** Supabase (Auth + Postgres + Storage + Edge Functions)
 - **State:** Zustand (stores in `lib/stores/`)
-- **Styling:** StyleSheet (NativeWind available but using StyleSheet for now)
+- **Styling:** StyleSheet + constants/app.ts (design tokens)
+- **Charts:** react-native-svg (RadarChart component)
 - **Forms:** React Hook Form + Zod (schemas in `lib/schemas/`)
 - **Data fetching:** TanStack Query
 - **Package manager:** pnpm
@@ -22,8 +23,8 @@
   - `(settings)/` — Config, reminders, account
   - `(modals)/` — Check-in, sync status
   - `(admin)/` — Moderation
-- `components/ui/` — Reusable UI components (Screen, Button, TextField, etc.)
-- `components/` — Domain-specific components (diagnostic/, plan/, today/, etc.)
+- `components/ui/` — Reusable UI (Screen, Button, TextField, SelectField, SwitchField, InlineError, LoadingState)
+- `components/diagnostic/` — Diagnostic components (RadarChart, ScaleInput, ProgressBar)
 - `lib/api/` — Service files (async pure, no store access)
 - `lib/stores/` — Zustand stores (one per domain)
 - `lib/schemas/` — Zod validation schemas
@@ -50,6 +51,12 @@
 - completion_logs are the single source of truth for execution
 - RLS: owner-only for personal data, member-only for community
 - Edge Functions only where client + RLS isn't enough (AI, aggregations)
+- Supabase Edge Functions: `supabase/functions/` (Deno, excluded from tsconfig)
+
+## Styling
+- All components use StyleSheet.create with design tokens from `constants/app.ts`
+- Design tokens: COLORS, SPACING, FONT_SIZE, BORDER_RADIUS
+- Dynamic styles (scores, charts) use inline style with values from constants
 
 ## Conventions
 - TypeScript strict mode for all files

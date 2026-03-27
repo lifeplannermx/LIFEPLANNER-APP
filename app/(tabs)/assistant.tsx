@@ -5,7 +5,7 @@ import { COLORS, FONT_SIZE, SPACING } from "@/constants/app";
 export default function AssistantScreen() {
   return (
     <Screen centered>
-      <Text style={styles.title}>Asistente IA</Text>
+      <Text style={styles.title}>Asistente</Text>
       <Text style={styles.subtitle}>Proximamente</Text>
     </Screen>
   );

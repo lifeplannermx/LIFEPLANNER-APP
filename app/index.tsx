@@ -26,6 +26,8 @@ export default function AppIndex() {
       return <Redirect href="/(diagnostic)/intro" />;
     case "diagnostic_processing":
       return <Redirect href="/(diagnostic)/processing" />;
+    case "needs_plan":
+      return <Redirect href="/(plan)/overview" />;
     case "ready":
       return <Redirect href="/(tabs)" />;
     default:

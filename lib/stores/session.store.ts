@@ -8,6 +8,7 @@ type BootstrapState =
   | "needs_onboarding"
   | "needs_diagnostic"
   | "diagnostic_processing"
+  | "needs_plan"
   | "ready";
 
 interface SessionState {
